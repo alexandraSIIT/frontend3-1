@@ -1,1 +1,2 @@
-# frontend3-1
+# frontend3-1 Final Project
+# Go Team!
