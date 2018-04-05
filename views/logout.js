@@ -8,7 +8,11 @@ window.addEventListener("load",function (){
  var registerContainer=document.getElementById("registerMessage");
 
  registerButton.addEventListener("click",function(){
+  if (form.style.display=="none"){
   form.style.display="block";
+  }else {
+   form.style.display="none";
+  }
    
  });
  okRegister.addEventListener("click", function(){
@@ -24,6 +28,8 @@ window.addEventListener("load",function (){
       auth.token=token;
       document.cookie="accessToken="+token;
       console.log(response.accessToken);
+      var logoutButton=document.getElementById("logoutButton");
+      logoutButton.style.display="block";
      })
     .catch(function(e) {
      console.log(e) ;
@@ -53,31 +59,8 @@ logoutButton.addEventListener("click",function (){
 
  });
 
-
-
-
 })
-function Auth(){
- this.token="";
-}
-Auth.prototype.logOut=function(token){
-  var root = 'https://ancient-caverns-16784.herokuapp.com';
-  console.log(token);
- return $.ajax({
-  url:root+"/auth/logout",
-   method: 'GET',
-   headers:{'X-Auth-Token':token},
- 
- })
-}
-Auth.prototype.register=function(userName,Password){
-  var root = 'https://ancient-caverns-16784.herokuapp.com';
- return $.post(root+"/auth/register",{
-    username: userName,
-	   password: Password
-   })
-   
-  }
+
 
 function validPass(myInput){
  var valid=false;

@@ -25,8 +25,27 @@
     </head>
     
     <body>
+
     <div class="register">
         
+
+    <script src="../views/logout.js"></script>
+
+    <div id="authBanner">
+    <div id="authButtons">
+        
+        <button id="registerButton">Register</button> 
+    </div>
+    <form id="registerForm">
+       <input type="text" name="userName" placeholder="Username"><br>
+       <input type="password" name="password" placeholder="Password"> <br>
+       <input type="e-mail" name="email" placeholder="E-mail"> <br>
+        <input type="button" name="okButton" value="Ok"> <br>
+        <button id="logoutButton">Logout</button> 
+   </form>
+   <p id="logoutMessage"></p>
+   <p id="registerMessage"></p>
+
     </div>
     <div clas="pagination">
             <p id="current-page"></p>
