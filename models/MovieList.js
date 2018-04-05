@@ -43,11 +43,9 @@ Movie.prototype.getMovieDetails = function(urlRoot) {
     var root = urlRoot;
     return $.ajax({
        url: root,
-       success:function(response){
-            // console.log(elementToDelete);
-            console.log("hey testing" + response);
-            // elementToDelete.remove();
-        }
+       method: 'GET'
+           
+        
     });
         
 

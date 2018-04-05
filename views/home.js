@@ -4,7 +4,7 @@ window.addEventListener("load", function(){
    .then(displayMovies);
     var container = document.getElementById("containermovies");
     var template = document.getElementsByClassName("template")[0];
-    var paginationn = document.getElementsByClassName("pagination")[0];
+    var pagination = document.getElementsByClassName("pagination")[0];
 
     function displayMovies(moviesContent){
     var currentPage = moviesContent.pagination.currentPage;
@@ -26,7 +26,7 @@ window.addEventListener("load", function(){
     var image = templateClone.querySelector("#img");
     var rating = templateClone.querySelector("#rating");
     var type = templateClone.querySelector("#type");
-   var testing = templateClone.querySelector("#testing");
+    var testing = templateClone.querySelector("#testing");
     testing.innerHTML = "serus";
     image.innerHTML = "<img src=" + content.Poster+" />";
     title.innerHTML= "<h2><a href=" + "https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=" + content._id +" />" + content.Title + " (" + content.Year + ")</h2>";

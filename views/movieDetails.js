@@ -7,93 +7,65 @@ window.addEventListener("load",function(){
     .then(displayMovie);
     var container = document.getElementById("containermovies");
     var template = document.getElementsByClassName("template")[0];
-    var paginationn = document.getElementsByClassName("pagination")[0];
+    var pagination = document.getElementsByClassName("pagination")[0];
     
     // var movieTitle = document.getElementById("title");
     // var movieImg = document.getElementById("img");
     // var movieGenre = document.getElementById("genre");
-   
-
     
-
     
    
     
-    
-    
-    function displayElements(content){
-    var templateClone = template.cloneNode(true); 
-    var title = templateClone.querySelector("#title");
-    var year = templateClone.querySelector("#year");
-    var rating = templateClone.querySelector("#rating");
-    var releaseDate = templateClone.querySelector("#releaseDate");
-    var runtime = templateClone.querySelector("#runtime");
-    var genre = templateClone.querySelector("#genre");
-    var director = templateClone.querySelector("#director");
-    var writer = templateClone.querySelector("#writer");
-    var actors = templateClone.querySelector("#actors");
-    var plot = templateClone.querySelector("#plot");
-    var language = templateClone.querySelector("#language");
-    var country = templateClone.querySelector("#country");
-    var awards = templateClone.querySelector("#awards");
-    var image = templateClone.querySelector("#img");
-    var type = templateClone.querySelector("#type");
-    image.innerHTML = "<img src=" + content.Poster+" />";
-    title.innerHTML= content.title + "(" + content.year + ")";
-    genre.innerHTML= "<b>Gender:</b> " + content.Genre;
-    rating.innerHTML="<b>Rating:</b> " + content.imdbRating;
-    type.innerHTML="<b>Type:</b> " + content.Type;
-    container.appendChild(templateClone);
-
-}
-
-    console.log(movie);
-    function displayMovie(){
+    function displayMovie(movie){
         
+        console.log(movie);
         var title=document.getElementById("title");
-        title.innerHTML=movie.title;
+        title.innerHTML=movie.Title;
+       
         
         var image=document.getElementById("img");
-        image.innerHTML="<img src="+movie.image+" />";
+        image.innerHTML="<img src="+movie.Poster+" />";
+        
         
         var year =document.getElementById("year");
-        year.innerHTML+=movie.year;
+        year.innerHTML+=movie.Year;
+       
         
         var rating = document.getElementById("rating");
-        rating.innerHTML+=movie.rating;
+        rating.innerHTML+=movie.Rating;
         
         var releaseDate=document.getElementById("releaseDate");
-        var date=movie.releaseDate;
+        releaseDate.innerHTML+=movie.Released;
         
         var runtime=document.getElementById("runtime");
-        var runtime=movie.runtime;
+        runtime.innerHTML+=movie.Runtime;
         
         var genre=document.getElementById("genre");
-        genre.innerHTML+=movie.genre;
+        genre.innerHTML+=movie.Genre;
         
         var director = document.getElementById("director");
-        director.innerHTML+=movie.director;
+        director.innerHTML+=movie.Director;
         
         var writer=document.getElementById("writer");
-        writer.innerHTML+=movie.writer;
+        writer.innerHTML+=movie.Writer;
         
         var actors=document.getElementById("actors");
-        actors.innerHTML+=movie.actors;
+        actors.innerHTML+=movie.Actors;
         
         var plot=document.getElementById("plot");
-        plot.innerHTML+=movie.plot;
+        plot.innerHTML+=movie.Plot;
         
         var language=document.getElementById("language");
-        language.innerHTML+=movie.language;
+        language.innerHTML+=movie.Language;
         
         var country=document.getElementById("country");
-        country.innerHTML+=movie.country;
+        country.innerHTML+=movie.Country;
         
         var awards=document.getElementById("awards");
-        awards.innerHTML+=movie.awards;
+        awards.innerHTML+=movie.Awards;
         
         var ratings = document.getElementById("ratings");
-        ratings.innerHTML+=movie.ratings;
+        ratings.innerHTML+=movie.Ratings;
         
         var movietype = document.getElementById("movietype");
         movietype.innerHTML+=movie.movietype;
@@ -105,13 +77,12 @@ window.addEventListener("load",function(){
         boxoffice.innerHTML+=movie.boxoffice;
         
         var production = document.getElementById("production");
-        production.innerHTML+=movie.production;
+        production.innerHTML+=movie.Production;
         
         var website = document.getElementById("website");
         website.innerHTML+=movie.website;
         
-        var ratings = document.getElementById("ratings");
-        ratings.innerHTML+=movie.ratings;
+        
     }
     
 })
