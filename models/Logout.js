@@ -41,15 +41,14 @@ logoutButton.addEventListener("click",function (){
   console.log(auth.token);
   auth.logOut(auth.token)
   .then(function(response){
-  console.log(response);
-  messageContainer.innerHTML=response.message;
-  document.cookie="accessToken=";
-  auth.token="";
-  })
+    console.log(response);
+     messageContainer.innerHTML=response.message;
+     document.cookie="accessToken=";
+     auth.token="";
+   })
   .catch(function(e) {
-   messageContainer.innerHTML=e.status+ " You have to be logged-in in order to log out";
-  console.log(e)})
- 
+    messageContainer.innerHTML=e.status+ " You have to be logged-in in order to log out";
+    console.log(e)})
  });
 
 
@@ -92,7 +91,7 @@ function validPass(myInput){
  return valid;
 }
 
- function validMail(myInput){
+function validMail(myInput){
    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    return re.test(myInput.toLowerCase());
  }  
