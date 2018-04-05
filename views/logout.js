@@ -53,31 +53,8 @@ logoutButton.addEventListener("click",function (){
 
  });
 
-
-
-
 })
-function Auth(){
- this.token="";
-}
-Auth.prototype.logOut=function(token){
-  var root = 'https://ancient-caverns-16784.herokuapp.com';
-  console.log(token);
- return $.ajax({
-  url:root+"/auth/logout",
-   method: 'GET',
-   headers:{'X-Auth-Token':token},
- 
- })
-}
-Auth.prototype.register=function(userName,Password){
-  var root = 'https://ancient-caverns-16784.herokuapp.com';
- return $.post(root+"/auth/register",{
-    username: userName,
-	   password: Password
-   })
-   
-  }
+
 
 function validPass(myInput){
  var valid=false;
