@@ -8,7 +8,11 @@ window.addEventListener("load",function (){
  var registerContainer=document.getElementById("registerMessage");
 
  registerButton.addEventListener("click",function(){
+  if (form.style.display=="none"){
   form.style.display="block";
+  }else {
+   form.style.display="none";
+  }
    
  });
  okRegister.addEventListener("click", function(){
@@ -24,6 +28,8 @@ window.addEventListener("load",function (){
       auth.token=token;
       document.cookie="accessToken="+token;
       console.log(response.accessToken);
+      var logoutButton=document.getElementById("logoutButton");
+      logoutButton.style.display="block";
      })
     .catch(function(e) {
      console.log(e) ;
