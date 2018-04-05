@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Movie</title>
+    <script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+	<script src="../models/Auth.js" type="text/javascript"></script>
+	<script src="../views/login.js"></script>
+</head>
+
+<body>
+    <div class="addMovie">
+        <h1>Add Movie</h1>
+		   <form>
+			<p id ="Title">Title</p>
+			<input id ="Movie_Title" type= "text"  placeholder = "Enter Title">
+
+			<p id ="Year">Year</p>
+			<input id ="Movie_Year" type= "text"  placeholder =" Enter Year">
+			
+			<p id ="ImdbID">ImdbID</p>
+			<input id ="Movie_Id" type= "text"  placeholder =" Enter IMDB Id">
+			
+			<p id ="Type">Type</p>
+			<input id ="Movie_Type" type= "text"  placeholder =" Enter Movie Type">
+			
+			<p id ="Poster">Poster</p>
+			<input id ="Movie_Poster" type= "text"  placeholder =" Enter Poster">
+
+			<input type="button" id="submitButton" value ="Add Movie">
+			   
+		</form>
+	</div>
+  
+</body>
+</html>	  

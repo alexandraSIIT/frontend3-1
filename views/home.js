@@ -5,13 +5,7 @@ window.addEventListener("load", function(){
     var container = document.getElementById("containermovies");
     var template = document.getElementsByClassName("template")[0];
     var paginationn = document.getElementsByClassName("pagination")[0];
-    
-    // var movieTitle = document.getElementById("title");
-    // var movieImg = document.getElementById("img");
-    // var movieGenre = document.getElementById("genre");
-   
 
-    
     function displayMovies(moviesContent){
     var currentPage = moviesContent.pagination.currentPage;
     var allPages = moviesContent.pagination.numberOfPages;
@@ -32,8 +26,10 @@ window.addEventListener("load", function(){
     var image = templateClone.querySelector("#img");
     var rating = templateClone.querySelector("#rating");
     var type = templateClone.querySelector("#type");
+   var testing = templateClone.querySelector("#testing");
+    testing.innerHTML = "serus";
     image.innerHTML = "<img src=" + content.Poster+" />";
-    title.innerHTML= "<a href=" + "https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=" + content._id +" />" + content.Title + " (" + content.Year + ")";
+    title.innerHTML= "<h2><a href=" + "https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=" + content._id +" />" + content.Title + " (" + content.Year + ")</h2>";
     genre.innerHTML= "<b>Gender:</b> " + content.Genre;
     rating.innerHTML="<b>Rating:</b> " + content.imdbRating;
     type.innerHTML="<b>Type:</b> " + content.Type;

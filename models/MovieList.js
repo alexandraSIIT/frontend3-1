@@ -1,21 +1,55 @@
-function Movies() {
+function Movies() { 
     this.id="";
     this.title="";
     this.image="";
     this.details="";
+    
 }
+
+function Movie() { 
+    this._id="";
+    this.title="";
+    this.image="";
+    this.year="";
+    this.rating="";
+    this.releaseDate="";
+    this.runtime="";
+    this.genre="";
+    this.director="";
+    this.writer="";
+    this.actors="";
+    this.plot="";
+    this.language="";
+    this.country="";
+    this.awards="";
+}
+
+
+
 
 Movies.prototype.getAllMovies = function(urlRoot) {
     
     var root = urlRoot;
     return fetch(
-        root, {
+        root , {
         method: 'GET',
         }).then(function(response){
         return response.json();
         });
 };
 
+Movie.prototype.getMovieDetails = function(urlRoot) {
+    
+    var root = urlRoot;
+    return $.ajax({
+       url: root,
+       success:function(response){
+            // console.log(elementToDelete);
+            console.log("hey testing" + response);
+            // elementToDelete.remove();
+        }
+    });
+        
 
 Movies.prototype.deleteMovie = function(){
     return $.ajax({
@@ -29,6 +63,6 @@ Movies.prototype.deleteMovie = function(){
             // elementToDelete.remove();
         }
     });
-
+}
 };
 

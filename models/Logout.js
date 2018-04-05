@@ -39,7 +39,7 @@ logoutButton.addEventListener("click",function (){
   auth.token="";
   })
   .catch(function(e) {
-   messageContainer.innerHTML=e.status+ " You have to be logged-in in order to log out";
+   messageContainer.innerHTML=e.status+ " You have to be logged in in order to log out";
   console.log(e)})
  
  });
