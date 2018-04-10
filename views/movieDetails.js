@@ -1,20 +1,22 @@
 /*global Movie */
 window.addEventListener("load",function(){
 
-    
+    var currentLocation = window.location.href;
+    console.log(currentLocation);
+    var currentid= currentLocation.substring(currentLocation.indexOf("=") +1,currentLocation.length);
+    console.log(currentid);
+
     var movie = new Movie();
-    movie.getMovieDetails('https://ancient-caverns-16784.herokuapp.com/movies/5ac3c02177e45c002158e865')
+    movie.getMovieDetails('https://ancient-caverns-16784.herokuapp.com/movies/' + currentid)
     .then(displayMovie);
     var container = document.getElementById("containermovies");
     var template = document.getElementsByClassName("template")[0];
     var pagination = document.getElementsByClassName("pagination")[0];
     
-    // var movieTitle = document.getElementById("title");
-    // var movieImg = document.getElementById("img");
-    // var movieGenre = document.getElementById("genre");
     
     
-   
+    
+    
     
     function displayMovie(movie){
         

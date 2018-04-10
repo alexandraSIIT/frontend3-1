@@ -26,13 +26,15 @@ window.addEventListener("load", function(){
     var image = templateClone.querySelector("#img");
     var rating = templateClone.querySelector("#rating");
     var type = templateClone.querySelector("#type");
-    var testing = templateClone.querySelector("#testing");
-    testing.innerHTML = "serus";
+    var deletemovie = templateClone.querySelector("#deleteButton");
+    var editmovie = templateClone.querySelector("#editButton");
     image.innerHTML = "<img src=" + content.Poster+" />";
     title.innerHTML= "<h2><a href=" + "https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=" + content._id +" />" + content.Title + " (" + content.Year + ")</h2>";
     genre.innerHTML= "<b>Gender:</b> " + content.Genre;
     rating.innerHTML="<b>Rating:</b> " + content.imdbRating;
     type.innerHTML="<b>Type:</b> " + content.Type;
+    deletemovie.innerHTML =  "<button>Delete</button>" + "<button>Edit</button>" ;
+    // editmovie.innerHTML =  "<button>Edit</button>";
     container.appendChild(templateClone);
     
     var buttonDelete=document.getElementById("deleteButton");
