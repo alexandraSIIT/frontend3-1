@@ -7,6 +7,7 @@ window.addEventListener("load",function (){
  var okRegister=document.getElementsByName("okButton")[0];
  var registerContainer=document.getElementById("registerMessage");
 
+window.onload=function(){
  registerButton.addEventListener("click",function(){
   if (form.style.display=="none"){
   form.style.display="block";
@@ -58,7 +59,7 @@ logoutButton.addEventListener("click",function (){
     console.log(e)})
 
  });
-
+}
 })
 
 

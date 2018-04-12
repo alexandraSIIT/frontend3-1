@@ -50,6 +50,9 @@
 .col-lg-3 col-md-6 mb-4 {
     min-height: 30px !important;
 }
+#movie-details{
+    position: relative;
+}
 
 .footer-copyright {
     background-color: #000;
