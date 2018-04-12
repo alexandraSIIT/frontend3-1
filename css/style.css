@@ -46,3 +46,20 @@
     width:100%;
     padding:5px;
 }
+
+.col-lg-3 col-md-6 mb-4 {
+    min-height: 30px !important;
+}
+#movie-details{
+    position: relative;
+}
+
+.footer-copyright {
+    background-color: #000;
+    width: 100%;
+    
+}
+
+.img-test {
+    width: 200px;
+}

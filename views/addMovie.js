@@ -20,6 +20,6 @@ function addMovie(title,year,id,type,poster){
         url: articlesRootUrl,
         method: 'POST',
   
-  });
- });
-});
+  })
+})
+})

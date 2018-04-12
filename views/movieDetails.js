@@ -68,19 +68,19 @@ window.addEventListener("load",function(){
         ratings.innerHTML+=movie.Ratings;
         
         var movietype = document.getElementById("movietype");
-        movietype.innerHTML+=movie.movietype;
+        movietype.innerHTML+=movie.Movietype;
         
         var dvd = document.getElementById("dvd");
-        dvd.innerHTML+=movie.dvd;
+        dvd.innerHTML+=movie.DVD;
         
         var boxoffice = document.getElementById("boxoffice");
-        boxoffice.innerHTML+=movie.boxoffice;
+        boxoffice.innerHTML+=movie.BoxOffice;
         
         var production = document.getElementById("production");
         production.innerHTML+=movie.Production;
         
         var website = document.getElementById("website");
-        website.innerHTML+=movie.website;
+        website.innerHTML+=movie.Website;
         
         
     }
