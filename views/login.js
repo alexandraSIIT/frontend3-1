@@ -6,6 +6,7 @@ var password = document.getElementById("Password");
  var auth =new Auth();
  
  
+
  submit.addEventListener("click",function (){
   
  var username = document.getElementById("User_name").value;
