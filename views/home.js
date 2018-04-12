@@ -14,16 +14,34 @@ window.addEventListener("load", function(){
     
     // var nextPage = moviesContent.pagination.links.next;
     // document.getElementById("next-page").innerHTML = "<a href=" + nextPage  + "/>" + "Next";
-    
+    var movieListEl = '';
     for (var i=0; i<moviesContent.results.length; i++){
         
-        displayElements(moviesContent.results[i]);
+        var index = i+1;
+        var movieEntry = '';
+        if (index === 1) {
+            movieEntry+= '<div class="row">';
+            
+        }
+        var movieContent = displayElements(moviesContent.results[i]);
+        movieEntry += movieContent;
+        if (index%4 === 0 && index !== 1 && index !== moviesContent.results.length) {
+             movieEntry += '</div>';
+             movieEntry+= '<div class="row">';
+        }
+        
+        if (index === moviesContent.results.length) {
+            movieEntry += '</div>';
+        }
+        
+        movieListEl += movieEntry;
     }
+        container.innerHTML += movieListEl;
 }
     
     
     function displayElements(content){
-    var template = '<div class="col-md-4">';
+    var template =  '<div class="col-lg-3 col-md-6 mb-4">';
         template += '<div class="thumbnail">';
         template += '<img class="img-test" + src='+content.Poster+' />';
         template += '<div class="caption">';
@@ -34,8 +52,8 @@ window.addEventListener("load", function(){
         template += "</div>";
         template += "</div>";
         template += "</div>";
-        template += "</div>";
-    container.innerHTML += template;
+    
+        return template;
     
     // var buttonDelete=document.getElementById("deleteButton");
     // buttonDelete.addEventListener("click",function(event){
