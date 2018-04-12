@@ -31,13 +31,13 @@ Auth.prototype.logOut=function(token){
    method: 'GET',
    headers:{'X-Auth-Token':token},
  
- })
-}
+ });
+};
 Auth.prototype.register=function(userName,Password){
  var root = 'https://ancient-caverns-16784.herokuapp.com';
  return $.post(root+"/auth/register",{
     username: userName,
 	   password: Password
-   })
+   });
    
-  }
+  };
