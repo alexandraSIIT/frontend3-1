@@ -7,48 +7,116 @@
     <title>Movie Details</title>
     <script src="../views/movieDetails.js"></script>
     <script src="../models/MovieList.js"></script>
+    <script type="text/javascript" src="../models/Movie.js"></script>
         <script
 	  src="https://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous"></script>
 	  <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="https://www.flaticon.com/premium-icon/icons/svg/206/206967.svg"/>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         
         <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div id = "movie-details">
-        <h2 id="title">Movie Details</h2>
-            <p id="img"></p>
-            <p id ="year">Year: </p>
-            <p id ="rating">Rating: </p>
-            <p id ="releaseDate">Release Date: </p>
-            <p id ="runtime">Runtime: </p>
-            <p id ="genre">Genre: </p>
-            <p id ="director">Director: </p>
-            <p id ="writer">Writer: </p>
-            <p id ="actors">Actors: </p>
-            <p id ="plot">Plot: </p>
-            <p id ="language">Language: </p>
-            <p id ="country">Country: </p>
-            <p id ="awards">Awards: </p>
-            <p id ="ratings">Ratings: </p>
-            <p id="movietype">Movie type: </p>
-            <p id="dvd">DVD: </p>
-            <p id="boxoffice">BoxOffice: </p>
-            <p id="production">Production: </p>
-            <p id="website">Website: </p>
+    <nav class="navbar navbar-inverse">
         
-            
+      <div class="container-fluid">
+       <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="https://www.flaticon.com/premium-icon/icons/svg/206/206967.svg" height="30" width="30">
+      </a>
+    </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="../pages/home.html">Home</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="welcome"><span class="glyphicon glyphicon-log-out" ></span></li>
+          <li><a href="#" data-toggle="modal" data-target="#logout" id="logoutButton"><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#register"id="registerButton"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+          <!--<li><a href="#" data-toggle="modal" data-target="#register"id="registerButton"><span class="glyphicon glyphicon-user" ></span> Toni(Logged in)</a></li>-->
+          <li><a href="#" data-toggle="modal" data-target="#login" id="loginButton"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+        </ul>
+      </div>
+    </nav> 
+    <div class="container">
+    <!--  <div class="jumbotron">-->
+    <!--    <h1>Welcome!</h1>-->
+    <!--    <p>Have you heard?! You can help our community by adding movies. But first login or register</p>-->
+    <!--    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addmovie">Add movie</button>-->
+    <!--  </div>-->
+    <!--</div>-->
+
+     <div class="panel panel-primary">
+      <div class="panel-heading"><p id="title"></p></div>
+      <div class="panel-body">
+          <div class="row">
+          <div class="col-md-6 text-center"> 
+              <p id="img"></p>
+          </div>
+          <div class="col-md-6 pull-left">
+            <p id ="releaseDate"><b>Release Date:</b> </p>
+            <p id ="runtime"><b>Runtime:</b> </p>
+            <p id="genre"><b>Genre:</b> </p>
+            <p id ="director"><b>Director:</b> </p>
+            <p id ="writer"><b>Writer:</b> </p>
+            <p id ="actors"><b>Actors:</b> </p>
+            <p id ="plot"><b>Plot:</b> </p>
+            <p id ="language"><b>Language:</b> </p>
+            <p id ="country"><b>Country:</b> </p>
+            <p id ="imdbrating"><b>imdbRating:</b> </p>
+            <p id ="imdbvotes"><b>imdbVotes:</b> </p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+               <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#editmovie">Edit</button>
+          </div>
+            <!-- Modal -->
+  <div class="modal fade" id="editmovie" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal for login -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body">
+          <form action="/">
+            <div class="form-group">
+            <label for="name">Title:</label>
+            <input type="text" class="form-control" id="title" placeholder="Enter movie title" name="title">
+            </div>
+            <div class="form-group">
+            <label for="newpwd">Year:</label>
+            <input type="text" class="form-control" id="year" placeholder="Enter movie year" name="year">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" id ="submitButton">Login</button>
+        </div>
+      </div>
+   
+  </div>
+  </div>
+      </div>
+
+      </div>
+      
     </div>
 
+    
 
-
-</body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+  </body>
 </html>

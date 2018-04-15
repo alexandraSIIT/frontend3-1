@@ -1,13 +1,20 @@
 /*global Movie */
 window.addEventListener("load",function(){
 
+    var url_string = window.location.href;
+    url_string=url_string.replace("https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=","");
+    console.log(url_string);
     
     var movie = new Movie();
-    movie.getMovieDetails('https://ancient-caverns-16784.herokuapp.com/movies/5ac3c02177e45c002158e865')
+    
+    
+
+    // url dinamic!!!
+    movie.getMovieDetails(url_string)
     .then(displayMovie);
-    var container = document.getElementById("containermovies");
-    var template = document.getElementsByClassName("template")[0];
-    var pagination = document.getElementsByClassName("pagination")[0];
+    // var container = document.getElementById("containermovies");
+    // var template = document.getElementsByClassName("template")[0];
+    // var pagination = document.getElementsByClassName("pagination")[0];
     
     // var movieTitle = document.getElementById("title");
     // var movieImg = document.getElementById("img");
@@ -20,7 +27,7 @@ window.addEventListener("load",function(){
         
         console.log(movie);
         var title=document.getElementById("title");
-        title.innerHTML=movie.Title;
+        title.innerHTML="<b>" + movie.Title + " (" + movie.Year +")" +'</b>';
        
         
         var image=document.getElementById("img");
@@ -32,52 +39,85 @@ window.addEventListener("load",function(){
        
         
         var rating = document.getElementById("rating");
-        rating.innerHTML+=movie.Rating;
+        // rating.innerHTML+= movie.Ratings.Value;
+        // console.log('hey', movie.Ratings.Source)
+        
         
         var releaseDate=document.getElementById("releaseDate");
         releaseDate.innerHTML+=movie.Released;
         
+        
         var runtime=document.getElementById("runtime");
         runtime.innerHTML+=movie.Runtime;
+        
         
         var genre=document.getElementById("genre");
         genre.innerHTML+=movie.Genre;
         
+        
         var director = document.getElementById("director");
         director.innerHTML+=movie.Director;
+        
         
         var writer=document.getElementById("writer");
         writer.innerHTML+=movie.Writer;
         
+        
         var actors=document.getElementById("actors");
         actors.innerHTML+=movie.Actors;
+        
         
         var plot=document.getElementById("plot");
         plot.innerHTML+=movie.Plot;
         
+        
         var language=document.getElementById("language");
         language.innerHTML+=movie.Language;
+        
         
         var country=document.getElementById("country");
         country.innerHTML+=movie.Country;
         
+        
         var awards=document.getElementById("awards");
         awards.innerHTML+=movie.Awards;
+        
+        
+        var metascore = document.getElementById("metascore");
+        metascore.innerHTML+=movie.Metascore;
+        
         
         var ratings = document.getElementById("ratings");
         ratings.innerHTML+=movie.Ratings;
         
+        
+        var imdbId = document.getElementById("imdbId");
+        imdbId.innerHTML+=movie.imdbID;
+        
+        
+        var imdbrating = document.getElementById("imdbrating");
+        imdbrating.innerHTML+=movie.imdbRating;
+        
+        
+        var imdbvotes = document.getElementById("imdbvotes");
+        imdbvotes.innerHTML+=movie.imdbVotes;
+        
+        
         var movietype = document.getElementById("movietype");
-        movietype.innerHTML+=movie.Movietype;
+        movietype.innerHTML+=movie.Type;
+        
         
         var dvd = document.getElementById("dvd");
         dvd.innerHTML+=movie.DVD;
         
+        
         var boxoffice = document.getElementById("boxoffice");
         boxoffice.innerHTML+=movie.BoxOffice;
         
+        
         var production = document.getElementById("production");
         production.innerHTML+=movie.Production;
+        
         
         var website = document.getElementById("website");
         website.innerHTML+=movie.Website;

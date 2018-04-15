@@ -1,46 +1,45 @@
 window.addEventListener("load",function (){
  var auth=  new Auth();
  var logoutButton=document.getElementById("logoutButton");
- var messageContainer=document.getElementById("logoutMessage");
- var registerButton = document.getElementById("registerButton");
  var form= document.getElementById("registerForm");
- var okRegister=document.getElementsByName("okButton")[0];
- var registerContainer=document.getElementById("registerMessage");
-
-window.onload=function(){
- registerButton.addEventListener("click",function(){
-  if (form.style.display=="none"){
-  form.style.display="block";
-  }else {
-   form.style.display="none";
-  }
-   
- });
- okRegister.addEventListener("click", function(){
-  var userName=document.getElementsByName("userName")[0].value;
-  var password=document.getElementsByName("password")[0].value;
-  var email=document.getElementsByName("email")[0].value;
-  
-  if (validPass(password)&&validMail(email)) {
-  
-    auth.register(userName,password)
+ var okRegister=document.getElementById("registerSubmit");
+ console.log(okRegister);
+ var message=document.getElementById("messageContainer");
+ var welcomeMessage=document.getElementById("welcome");
+ var loginButton=document.getElementById("loginButton");
+ var registerButton=document.getElementById("registerButton");
+ console.log(okRegister);
+ 
+  okRegister.addEventListener("click", function(){
+   var userName=document.getElementById("name").value;
+   console.log(userName);
+   var password=document.getElementById("newpwd").value;
+   console.log(password);
+   var email=document.getElementById("newemail").value;
+    if (validPass(password)&&validMail(email)) {
+     auth.register(userName,password)
      .then(function(response){
       const token=response.accessToken;
       auth.token=token;
       document.cookie="accessToken="+token;
       console.log(response.accessToken);
-      var logoutButton=document.getElementById("logoutButton");
       logoutButton.style.display="block";
+      welcomeMessage.style.display="block";
+      welcomeMessage.innerHTML="Welcome "+userName+" !";
+      loginButton.style.display="none";
+      registerButton.style.display="none";
      })
     .catch(function(e) {
      console.log(e) ;
-     registerContainer.innerHTML=e.status+ " Username already existing. Please login";
+     message.innerHTML=" Username already existing. Please login";
      });
     }else if(validPass(password)==false){
      console.log("The password is not correct");
+     message.innerHTML=" The password is not correct";
     }
     else if(validMail(email)==false){
      console.log("The email is not correct");
+     message.innerHTML=" The mail is not correct";
     }
  });
  
@@ -49,18 +48,17 @@ logoutButton.addEventListener("click",function (){
   auth.logOut(auth.token)
   .then(function(response){
     console.log(response);
-     messageContainer.innerHTML=response.message;
-     document.cookie="accessToken=";
-     auth.token="";
+    loginButton.style.display="block";
+    registerButton.style.display="block";
+    logoutButton.style.display="none";
+    welcomeMessage.style.display="none";
+    document.cookie="accessToken=";
+    auth.token="";
    })
   .catch(function(e) {
-
-    messageContainer.innerHTML=e.status+ " You have to be logged-in in order to log out";
-    console.log(e)})
-
+   console.log(e);})
  });
-}
-})
+});
 
 
 function validPass(myInput){
@@ -73,7 +71,6 @@ function validPass(myInput){
  }else{
   valid=false;
  }
- 
  return valid;
 }
 

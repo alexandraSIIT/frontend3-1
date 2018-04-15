@@ -48,6 +48,7 @@ Movie.prototype.getMovieDetails = function(urlRoot) {
         
     });
         
+        
 
 Movies.prototype.deleteMovie = function(){
     return $.ajax({

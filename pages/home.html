@@ -17,7 +17,7 @@
     <script type="text/javascript" src="../views/home.js"></script>
     <script type="text/javascript" src ="../models/Auth.js"></script>
     <script type ="text/javascript" src="../views/login.js"></script>
- 
+    <script type="text/javascript" src="../views/logout.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,12 +38,15 @@
     </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Members</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="contact.html
+          ">Contact Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" data-toggle="modal" data-target="#register"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+          <li id="welcome"><span class="glyphicon glyphicon-log-out" ></span></li>
+          <li><a href="#" data-toggle="modal" data-target="#logout" id="logoutButton"><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#register"id="registerButton"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#login" id="loginButton"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
         </ul>
       </div>
     </nav> 
@@ -53,44 +56,11 @@
         <p>Have you heard?! You can help our community by adding movies. But first login or register</p>
         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addmovie">Add movie</button>
        </div>
-       <form>
-        <div class="row">
-        <div class="col-md-6 center-block">
-        <div class="panel panel-primary">
-        <div class="panel-heading">Panel with panel-primary class</div>
-        <div class="panel-body">
-          <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter Movie Name" name="name">
-            </div>
-            <div class="form-group">
-            <label for="year">Year:</label>
-            <input type="password" class="form-control" id="year" placeholder="Movie Year" name="year">
-            </div>
-        </div>
-        </div>
-       </div>
-       </form>
-       </div>
+       
   <!-- Modal -->
   <div class="modal fade" id="login" role="dialog">
     <div class="modal-dialog">
-    
-
-    <div class="register">
-    
-    <form id="registerForm">
-       <input type="text" name="userName" placeholder="Username"><br>
-       <input type="password" name="password" placeholder="Password"> <br>
-       <input type="e-mail" name="email" placeholder="E-mail"> <br>
-        <input type="button" name="okButton" value="Ok"> <br>
-        <button id="logoutButton">Logout</button> 
-   </form>
-   <p id="logoutMessage"></p>
-   <p id="registerMessage"></p>
-
-
-      <!-- Modal for login -->
+          <!-- Modal for login -->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -112,7 +82,7 @@
         <button type="button" class="btn btn-success" data-dismiss="modal" id ="submitButton">Login</button>
         </div>
       </div>
-    </div>
+   
   </div>
   </div>
    <!-- Modal register -->
@@ -142,7 +112,9 @@
           </form>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Register</button>
+        <div id="messageContainer"></div>
+        
+        <button type="button" class="btn btn-success" id="registerSubmit">Register</button>
         </div>
       </div>
 
@@ -157,10 +129,24 @@
   </div>
    <nav class="navbar navbar-inverse">
     <form class="navbar-form navbar-right" role="search">
+    <select class="form-control" id="searchList" >
+      <option id="defOption">Please select a filter</option>
+      <option id="Title">Title</option>
+      <option id="Year">Year</option>
+      <option id="Runtime">Runtime</option>
+      <option id="Genre">Genre</option>
+      <option id="Language">Language</option>
+      <option id="Country">Country</option>
+      <option id="Poster">Poster</option>
+      <option id="Rating">imdbRating</option>
+      <option id="Votes">imdbVotes</option>
+      <option id="Id">imdbID</option>
+      <option id="Type">Type</option>
+    </select>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control"  id="search" placeholder="Search">
       </div>
-      <button type="submit" class="btn btn-success btn-sm">Submit</button>
+      <button type="button" class="btn btn-success " id="searchButton">Submit</button>
     </form>
     </nav>
     <div class="container movies-container">

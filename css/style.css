@@ -18,33 +18,14 @@
 .glyphicon glyphicon-star {
     color: yellow;
 }
-#authBanner{
-    width:100%;
-    background-color:#004d4d;
-    padding:20px;
-    position: relative;
 
-}
-
-#authButtons{
-    display:flex;
-    justify-content:flex-end;
-}
-#registerForm {
-   display:none;
-   position:absolute;
-   right:10px;
-}
 #logoutButton{
     display:none;
 }
-#registerForm{
-    background-color:#00b3b3;
-    padding:20px;
-}
-#registerForm input{
-    width:100%;
-    padding:5px;
+#welcome {
+    display:none;
+    color:white;
+    padding:15px;
 }
 
 .col-lg-3 col-md-6 mb-4 {

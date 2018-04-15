@@ -1,5 +1,8 @@
 window.addEventListener("load", function(){
-   var movies = new Movies(); 
+    var movies = new Movies(); 
+    var searchList=document.getElementById("searchList");
+    var search=document.getElementById("search");
+    var searchButton=document.getElementById("searchButton");
    movies.getAllMovies('https://ancient-caverns-16784.herokuapp.com/movies/')
    .then(displayMovies);
     var container = document.getElementById("containermovies");
@@ -48,7 +51,8 @@ window.addEventListener("load", function(){
         template += "<h3><a href=" + "https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=" + content._id +">" + content.Title + " (" + content.Year + ") </a></h3>";
         template += "<p><b>Gender:</b> " + content.Genre + "</p>";
         template += "<p><b>Rating:</b>" + content.imdbRating + "</p>";
-        template += '<p><a href="#" class="btn btn-primary" role="button">Edit</a> <a href="#" class="btn btn-danger" role="button">Delete</a></p>';
+        template += "<hr>";
+        template += '<p><a href="#" class="btn btn-danger align-bottom" role="button">Delete</a></p>';
         template += "</div>";
         template += "</div>";
         template += "</div>";
@@ -60,6 +64,37 @@ window.addEventListener("load", function(){
     //     movies.deleteMovie();
     // });
     }
+    
+    
+    //Search
+    
+    searchList.addEventListener("change",function(){
+                var selected=this.selectedOptions[0];
+                
+                searchButton.addEventListener("click",function(){
+                    if (selected.id != "defOption"){
+                    var value=search.value;
+                    console.log(value);
+                    
+                    movies.getAllMovies('https://ancient-caverns-16784.herokuapp.com/movies?'+selected.id+"="+value)
+                    .then (function(response){
+                        console.log(response);
+                        container.innerHTML="";
+                        displayMovies(response);
+                        if (response.results.length==0){
+                            container.innerHTML="No result"
+                        }
+                    });
+                    }
+                    
+                });
+                if (selected.id == "defOption"){
+                    container.innerHTML="";
+                    movies.getAllMovies('https://ancient-caverns-16784.herokuapp.com/movies/')
+                        .then(displayMovies);
+                }
+                
+    });    
 });
 
 
