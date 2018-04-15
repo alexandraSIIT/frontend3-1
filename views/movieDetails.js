@@ -2,7 +2,7 @@
 window.addEventListener("load",function(){
 
     var url_string = window.location.href;
-    url_string=url_string.replace("https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=","");
+    url_string=getUrlParameter("id");
     console.log(url_string);
     
     var movie = new Movie();
@@ -27,7 +27,7 @@ window.addEventListener("load",function(){
         
         console.log(movie);
         var title=document.getElementById("title");
-        title.innerHTML="<b>" + movie.Title + " (" + movie.Year +")" +'</b>';
+        title.innerHTML="<b>" + movie.Title + " (" + movie.Year +")" +'</b>' + '<span class="pull-right"> '+ movie.imdbRating  +' </span> ' + ' <span class="glyphicon glyphicon-star pull-right" aria-hidden="true"> </span> ';
        
         
         var image=document.getElementById("img");
@@ -126,3 +126,9 @@ window.addEventListener("load",function(){
     }
     
 })
+   function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};

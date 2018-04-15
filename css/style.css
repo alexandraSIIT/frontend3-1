@@ -52,9 +52,14 @@
 
 .thumbnail {
   height: 450px;
+  border-color: #847d7d;
 }
 
 .bottom {
     position: absolute;
     bottom: 30px;
+}
+
+.glyphicon-star {
+    color: yellow;
 }
