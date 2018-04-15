@@ -10,7 +10,7 @@ window.addEventListener("load",function(){
     
 
     // url dinamic!!!
-    movie.getMovieDetails(url_string)
+    movie.getMovieDetails("https://ancient-caverns-16784.herokuapp.com/movies/"+url_string)
     .then(displayMovie);
     // var container = document.getElementById("containermovies");
     // var template = document.getElementsByClassName("template")[0];

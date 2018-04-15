@@ -44,15 +44,14 @@ window.addEventListener("load", function(){
     
     
     function displayElements(content){
-    var template =  '<div class="col-lg-3 col-md-6 mb-4">';
+    var template =  '<div class="col-lg-3 col-md-3 col-md-4">';
         template += '<div class="thumbnail">';
         template += '<img class="img-test" + src='+content.Poster+' />';
         template += '<div class="caption">';
         template += "<h3><a href=" + "https://myimbd-antoniopatraska.c9users.io/frontend3-1/pages/movieDetails.html?id=" + content._id +">" + content.Title + " (" + content.Year + ") </a></h3>";
-        template += "<p><b>Gender:</b> " + content.Genre + "</p>";
-        template += "<p><b>Rating:</b>" + content.imdbRating + "</p>";
-        template += "<hr>";
-        template += '<p><a href="#" class="btn btn-danger align-bottom" role="button">Delete</a></p>';
+        template += "<p><b>Genre:</b> " + content.Genre + "</p>";
+        template += "<p><b>Rating:</b> " + content.imdbRating + "</p>";
+        template += '<p><a href="#" class="btn btn-danger bottom" role="button">Delete</a></p>';
         template += "</div>";
         template += "</div>";
         template += "</div>";

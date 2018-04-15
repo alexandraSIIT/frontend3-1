@@ -42,5 +42,19 @@
 }
 
 .img-test {
-    width: 200px;
+    max-height: 220px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+
+.thumbnail {
+  height: 450px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 30px;
 }
