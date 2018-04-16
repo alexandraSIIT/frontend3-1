@@ -44,7 +44,7 @@ window.addEventListener("load", function(){
     
     
     function displayElements(content){
-    var template =  '<div class="col-lg-3 col-md-3 col-md-4">';
+    var template =  '<div class="col-lg-3 col-md-3 col-sm-6">';
         template += '<div class="thumbnail">';
         template += '<img class="img-test" + src='+content.Poster+' />';
         template += '<div class="caption">';
