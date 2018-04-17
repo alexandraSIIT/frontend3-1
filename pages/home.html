@@ -39,8 +39,6 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="members.html">Members</a></li>
-          <li><a href="contact.html
-          ">Contact Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li id="welcome"><span class="glyphicon glyphicon-log-out" ></span></li>
@@ -56,7 +54,46 @@
         <p>Have you heard?! You can help our community by adding movies. But first login or register</p>
         <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#addmovie">Add movie</button>
        </div>
-       
+  <!-- Modal -->
+  <div class="modal fade" id="addmovie" role="dialog">
+    <div class="modal-dialog">
+          <!-- Modal for addmovie -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Movie</h4>
+        </div>
+        <div class="modal-body">
+          <form action="javascript:void(0);" method="POST" onsubmit="addMovie()">
+            <div class="form-group">
+            <label for="name">Title:</label>
+            <input type="text" class="form-control" id="title" placeholder="Title" name="name">
+            </div>
+            <div class="form-group">
+            <label for="name">Password:</label>
+            <input type="text" class="form-control" id="year" placeholder="Year" name="year">
+            </div>
+            <div class="form-group">
+            <label for="name">ImdbID:</label>
+            <input type="text" class="form-control" id="imdbID" placeholder="ImdbID" name="imdbID">
+            </div>
+            <div class="form-group">
+            <label for="name">Type:</label>
+            <input type="text" class="form-control" id="type" placeholder="Type" name="type">
+            </div>
+            <div class="form-group">
+            <label for="name">Poster:</label>
+            <input type="text" class="form-control" id="poster" placeholder="Poster (ex. http://www.fdf.ro/img/2.jpg/)" name="type">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id ="addMovie" onclick="addMovie">Add Movie</button>
+        </div>
+      </div>
+   
+  </div>
+  </div>    
   <!-- Modal -->
   <div class="modal fade" id="login" role="dialog">
     <div class="modal-dialog">
@@ -120,9 +157,6 @@
 
     </div>
   </div>
-  
-    
-  
   </div>
   <div class="row">
     <div class="col-m6-md"></div>
@@ -149,28 +183,35 @@
       <button type="button" class="btn btn-success " id="searchButton">Submit</button>
     </form>
     </nav>
+    <!--<div clas="pagination">-->
+    <!--  <nav aria-label="...">-->
+    <!--  <ul class="pager">-->
+    <!--    <li><a href="#" id="prev-page">Previous</a></li>-->
+    <!--    <li><a href="#" id="current-page"></a></li>-->
+    <!--    <li><a href="#" id="next-page"></a></li>-->
+       
+    <!--  </ul>-->
+    <!--</nav>-->
+    <!--        <p id="current-page"></p>-->
+    <!--        <p id="next-page"></p>-->
+    <!--</div>-->
     <div class="container movies-container">
       <div id="containermovies"></div>
     </div>
     <hr>
 
-    <nav aria-label="...">
-  <ul class="pager">
-    <li><a href="#">Previous</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</nav>
-   </div> 
-<footer>
-    <!--Copyright-->
-    <div class="footer-copyright text-center">
-        © 2018 Copyright:
-        
-    </div>
-    <!--/.Copyright-->
 
-</footer>
+
+
+    
+   </div>
+   
+   <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.js"></script>

@@ -19,7 +19,7 @@ Auth.prototype.Login=function(username, password){
             document.cookie = "token=" + response.accessToken;
         }
     };
-    console.log(response);
+    // console.log(response);
    });
 
   };
@@ -39,5 +39,4 @@ Auth.prototype.register=function(userName,Password){
     username: userName,
 	   password: Password
    });
-   
   };

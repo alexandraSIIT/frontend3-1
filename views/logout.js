@@ -25,7 +25,7 @@ window.addEventListener("load",function (){
       console.log(response.accessToken);
       logoutButton.style.display="block";
       welcomeMessage.style.display="block";
-      welcomeMessage.innerHTML="Welcome "+userName+" !";
+      welcomeMessage.innerHTML="Welcome "+userName+"!";
       loginButton.style.display="none";
       registerButton.style.display="none";
      })
